@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "EasyScroll for MacOS",
+  "version": "1.0",
+  "description": "Enabling smooth middle-click scrolling on macOS for effortless page navigation with your mouse wheel.",
+  "minimum_chrome_version": "88",
+  "icons": {
+    "16": "data/images/icons/icon.png",
+    "32": "data/images/icons/icon.png",
+    "48": "data/images/icons/icon.png",
+    "64": "data/images/icons/icon.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "main.js"
+  },
+  "options_ui": {
+    "page": "data/options.html"
+  },
+  "content_scripts": [{
+    "all_frames": false,
+    "js": ["data/defaults.js", "data/AutoScroll.js"],
+    "matches": ["<all_urls>"],
+    "run_at": "document_end"
+  }],
+  "web_accessible_resources": [{
+    "resources": [
+    ],
+    "matches": ["<all_urls>"]
+  }]
+}
